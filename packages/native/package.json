@@ -1,0 +1,42 @@
+{
+  "name": "@acme/native",
+  "private": true,
+  "version": "0.2.0",
+  "author": "Akash <akashdevcc@gmail.com>",
+  "type": "module",
+  "react-native": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:^",
+    "@acme/prettier-config": "workspace:^",
+    "@acme/tsconfig": "workspace:^",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@acme/eslint-config/base"
+    ],
+    "ignorePatterns": [
+      "types/nativewind-env.d.ts"
+    ]
+  },
+  "prettier": "@acme/prettier-config",
+  "dependencies": {
+    "expo-router": "~3.4.7",
+    "nativewind": "~4.0.13",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "~0.73.4",
+    "tailwindcss": "^3.4.0"
+  }
+}

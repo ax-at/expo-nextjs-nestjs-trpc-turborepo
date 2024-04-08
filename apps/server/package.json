@@ -1,0 +1,60 @@
+{
+  "name": "@acme/server",
+  "version": "0.2.0",
+  "private": true,
+  "author": "Akash <akashdevcc@gmail.com>",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "with-env": "dotenv -e ../../.env --",
+    "clean": "git clean -xdf .turbo node_modules",
+    "build": "pnpm with-env nest build",
+    "start": "pnpm with-env nest start",
+    "start:debug": "pnpm with-env nest start --debug --watch",
+    "dev": "pnpm with-env nest start --watch",
+    "build:tsc": "pnpm with-env tsc -p tsconfig.build.json",
+    "build:tsup": "pnpm with-env tsup",
+    "start:old": "pnpm with-env node dist/index.js",
+    "build:clean": "rm -rf dist",
+    "build:watch": "pnpm with-env env tsup --watch . --watch ../../packages/api/src/ --watch ../../packages/features/src/ --watch ../../packages/db/src/ --watch ../../packages/schema/src/",
+    "start:watch": "nodemon --watch dist --exec pnpm start:old",
+    "dev:old": "rm -rf dist && pnpm build:tsup && run-p build:watch start:watch",
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register test/**/*.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/platform-fastify": "10.3.7",
+    "@acme/api": "workspace:^",
+    "@trpc/server": "11.0.0-next-beta.236",
+    "fastify": "4.26.2",
+    "fastify-cli": "6.1.1",
+    "fastify-plugin": "4.5.1",
+    "lodash": "^4.17.21",
+    "trpc-playground": "^1.0.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@acme/eslint-config": "workspace:^",
+    "@acme/prettier-config": "workspace:^",
+    "@acme/tsconfig": "workspace:^",
+    "@swc/core": "^1.4.12",
+    "@types/lodash": "^4.17.0",
+    "@types/node": "^20.10.6",
+    "dotenv-cli": "^7.3.0",
+    "nodemon": "^3.0.3",
+    "npm-run-all": "^4.1.5",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "license": "ISC"
+}

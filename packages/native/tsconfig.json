@@ -1,0 +1,8 @@
+{
+  "extends": "@acme/tsconfig/esm.json",
+  "compilerOptions": {
+    "types": ["nativewind/types"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "build", "dist"]
+}

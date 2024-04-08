@@ -1,0 +1,21 @@
+{
+  "extends": "@acme/tsconfig/esm.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "jsx": "react-native",
+    "types": ["nativewind/types"]
+  },
+  "include": [
+    "src",
+    "*.ts",
+    "*.tsx",
+    "*.js",
+    "*.jsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": ["node_modules", "build", "dist", ".expo"]
+}

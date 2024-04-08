@@ -1,0 +1,18 @@
+{
+  "extends": "@acme/tsconfig/esm.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    },
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "incremental": true
+  },
+  "include": [".", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "build", "dist"]
+}

@@ -1,0 +1,10 @@
+{
+  "extends": "@acme/tsconfig/nest.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "./",
+    "outDir": "./dist"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "build", "dist"]
+}

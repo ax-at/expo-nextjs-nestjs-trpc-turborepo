@@ -1,0 +1,5 @@
+{
+  "extends": "@acme/tsconfig/esm.json",
+  "include": ["."],
+  "exclude": ["node_modules"]
+}
