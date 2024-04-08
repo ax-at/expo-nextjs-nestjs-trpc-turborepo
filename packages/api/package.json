@@ -15,11 +15,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nestjs/common": "^10.0.0",
     "@acme/features": "workspace:^",
     "@acme/logging": "workspace:^",
     "@acme/trpc": "workspace:^",
     "@acme/validators": "workspace:^",
+    "@grpc/proto-loader": "^0.7.12",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "@nestjs/websockets": "^10.0.0",
     "@trpc/server": "11.0.0-next-beta.236",
     "zod": "^3.22.4"
   },

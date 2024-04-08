@@ -1,4 +1,5 @@
 import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
+import { NestFactory } from "@nestjs/core";
 import { AppModule } from "app.module";
 
 import { createCallerFactory, createInnerContext } from "@acme/trpc";
@@ -23,7 +24,15 @@ type RouterInputs = inferRouterInputs<AppRouter>;
  **/
 type RouterOutputs = inferRouterOutputs<AppRouter>;
 
+const createAppRouter = async () => {
+  const app = await NestFactory.createApplicationContext(AppModule);
+  const appRouterFactory = app.get(AppRouterFactory);
+  const appRouter = appRouterFactory.create();
+  return appRouter;
+};
+
 export {
+  createAppRouter,
   createCallerFactory,
   createInnerContext,
   AppContextFactory,

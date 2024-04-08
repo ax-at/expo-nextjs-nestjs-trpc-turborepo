@@ -1,6 +1,10 @@
 import { cache } from "react";
 
-import { createCallerFactory, createInnerContext } from "@acme/api";
+import {
+  createAppRouter,
+  createCallerFactory,
+  createInnerContext,
+} from "@acme/api";
 
 /**
  * This wraps the `createInnerContext` helper and provides the required context for the tRPC API when
@@ -10,4 +14,7 @@ const createContext = cache(async () => {
   return createInnerContext();
 });
 
-export const api = createCallerFactory(createContext);
+const appRouter = await createAppRouter();
+const createCaller = createCallerFactory(appRouter);
+
+export const api = createCaller(createContext);
