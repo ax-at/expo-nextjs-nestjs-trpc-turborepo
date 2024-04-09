@@ -1,11 +1,11 @@
 import { Injectable } from "@nestjs/common";
 
-import { Logger, LoggerFactory } from "@acme/logging";
+import type { Logger } from "@acme/logging";
+import { LoggerFactory } from "@acme/logging";
 
 @Injectable()
 export class GreetingService {
-  private readonly logger: Logger =
-    LoggerFactory.getLogger("GreetingService");
+  private readonly logger: Logger = LoggerFactory.getLogger("GreetingService");
 
   public greet(name: string | undefined) {
     this.logger.info("greet() called");

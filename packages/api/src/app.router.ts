@@ -1,7 +1,8 @@
 import { Injectable } from "@nestjs/common";
 
-import { GreetingRouter, PostRouter } from "@acme/features";
-import { createRouter } from "@acme/trpc";
+import { GreetingRouter } from "./greeting";
+import { PostRouter } from "./post";
+import { createRouter } from "./trpc";
 
 @Injectable()
 export class AppRouterFactory {
