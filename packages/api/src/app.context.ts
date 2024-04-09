@@ -2,15 +2,10 @@ import type { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify"
 import type { FastifyRequest } from "fastify";
 import { Injectable } from "@nestjs/common";
 
-import type { Logger } from "@acme/logging";
-import { LoggerFactory } from "@acme/logging";
-import { createInnerContext } from "@acme/trpc";
+import { createInnerContext } from "./context";
 
 @Injectable()
 export class AppContextFactory {
-  private readonly logger: Logger =
-    LoggerFactory.getLogger("AppContextFactory");
-
   create() {
     return ({ req }: CreateFastifyContextOptions) => {
       const source = this.getSource(req);

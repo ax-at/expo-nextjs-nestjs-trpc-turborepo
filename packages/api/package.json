@@ -15,9 +15,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/features": "workspace:^",
     "@acme/logging": "workspace:^",
-    "@acme/trpc": "workspace:^",
     "@acme/validators": "workspace:^",
     "@grpc/proto-loader": "^0.7.12",
     "@nestjs/common": "^10.0.0",

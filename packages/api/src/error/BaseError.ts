@@ -2,11 +2,11 @@ export const BASE_ERROR_CODES = {
   OPERATION_NOT_PERFORMED: Symbol("OPERATION_NOT_PERFORMED"),
 } as const;
 
-export type ErrorOptions<T> = {
+export interface ErrorOptions<T> {
   code: T;
   message?: string;
   cause?: unknown;
-};
+}
 
 export class BaseError<T> extends Error {
   public readonly cause?: Error;
