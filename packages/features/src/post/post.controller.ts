@@ -1,8 +1,7 @@
 import { Injectable } from "@nestjs/common";
 
-import type { Logger } from "@acme/logging";
 import type { CreatePost } from "@acme/validators";
-import { LoggerFactory } from "@acme/logging";
+import { Logger, LoggerFactory } from "@acme/logging";
 
 import { PostService } from "./post.service";
 

@@ -1,10 +1,15 @@
 import { Injectable } from "@nestjs/common";
 
-import type { Logger } from "@acme/logging";
 import type { CreatePost } from "@acme/validators";
-import { LoggerFactory } from "@acme/logging";
+import { Logger, LoggerFactory } from "@acme/logging";
 
-const posts = [
+type Post = {
+  id: number;
+  title: string;
+  content: string;
+};
+
+let posts = [
   {
     id: 1,
     title: "test title 1",

@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
-import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import { createRouter, publicProcedure } from "../trpc";
+import { createRouter, publicProcedure, TRPCError } from "@acme/trpc";
+
 import { GreetingController } from "./greeting.controller";
 
 @Injectable()

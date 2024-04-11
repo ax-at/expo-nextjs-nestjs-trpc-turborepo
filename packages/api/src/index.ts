@@ -2,12 +2,12 @@ import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "app.module";
 
+import type { Session } from "@acme/trpc";
+import { createCallerFactory, createInnerContext } from "@acme/trpc";
+
 import type { AppRouter } from "./app.router";
-import type { Session } from "./context";
 import { AppContextFactory } from "./app.context";
 import { AppRouterFactory } from "./app.router";
-import { createInnerContext } from "./context";
-import { createCallerFactory } from "./trpc";
 
 /**
  * Inference helpers for input types

@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { z } from "zod";
 
+import { createRouter, publicProcedure } from "@acme/trpc";
 import { CreatePostSchema } from "@acme/validators";
 
-import { createRouter, publicProcedure } from "../trpc";
 import { PostController } from "./post.controller";
 
 @Injectable()
@@ -12,7 +12,6 @@ export class PostRouter {
 
   create() {
     return createRouter({
-      // eslint-disable-next-line no-empty-pattern
       all: publicProcedure.query(({}) => {
         return this.postController.getAll();
       }),
