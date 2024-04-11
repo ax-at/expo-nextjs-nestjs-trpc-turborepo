@@ -1,8 +1,10 @@
-# Acme monorepo
+# Zero Stack Monorepo
 
-An attempt to combine Expo, NextJS, tRPC, NestJS in one single monorepo.
+Expo, NextJS, tRPC, NestJS in one single monorepo.
 
 ## The issue:
+
+**UPDATE: THE ISSUE HAS BEEN RESOLVED AND MERGED TO MAIN BRANCH.**
 
 Gets following errors at multiple places in apps "nextjs" and "expo":
 
