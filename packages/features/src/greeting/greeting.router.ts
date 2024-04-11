@@ -11,23 +11,25 @@ export class GreetingRouter {
 
   create() {
     return createRouter({
-      hello: publicProcedure
-        .input(
-          z.object({
-            name: z.string().optional(),
+      greeting: {
+        hello: publicProcedure
+          .input(
+            z.object({
+              name: z.string().optional(),
+            }),
+          )
+          .query(({ input }) => {
+            try {
+              const { name } = input;
+              return this.greetingController.greet(name);
+            } catch (error) {
+              throw new TRPCError({
+                code: "INTERNAL_SERVER_ERROR",
+                cause: error,
+              });
+            }
           }),
-        )
-        .query(({ input }) => {
-          try {
-            const { name } = input;
-            return this.greetingController.greet(name);
-          } catch (error) {
-            throw new TRPCError({
-              code: "INTERNAL_SERVER_ERROR",
-              cause: error,
-            });
-          }
-        }),
+      },
     });
   }
 }

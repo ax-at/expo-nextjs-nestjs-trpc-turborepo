@@ -9,7 +9,7 @@ import type { AppRouter, RouterInputs, RouterOutputs } from "@acme/api";
 /**
  * A set of typesafe hooks for consuming your API.
  */
-const trpc = createTRPCReact<AppRouter>();
+const api = createTRPCReact<AppRouter>();
 
 /**
  * Extend this function when going to production by
@@ -42,8 +42,8 @@ const getBaseUrl = () => {
  */
 const APIClientProvider = (props: { children: React.ReactNode }) => {
   const [queryClient] = useState(() => new QueryClient());
-  const [trpcClient] = useState(() =>
-    trpc.createClient({
+  const [apiClient] = useState(() =>
+    api.createClient({
       links: [
         httpBatchLink({
           url: `${getBaseUrl()}/api/trpc`,
@@ -64,13 +64,13 @@ const APIClientProvider = (props: { children: React.ReactNode }) => {
   );
 
   return (
-    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+    <api.Provider client={apiClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
         {props.children}
       </QueryClientProvider>
-    </trpc.Provider>
+    </api.Provider>
   );
 };
 
-export { trpc, APIClientProvider };
+export { api, APIClientProvider };
 export type { RouterInputs, RouterOutputs };

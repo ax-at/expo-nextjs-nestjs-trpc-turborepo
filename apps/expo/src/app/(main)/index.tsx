@@ -5,7 +5,7 @@ import { Link, Stack } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
 
 import type { RouterOutputs } from "~/api";
-import { trpc } from "~/api";
+import { api } from "~/api";
 
 function PostCard(props: {
   post: RouterOutputs["post"]["all"][number];
@@ -37,16 +37,16 @@ function PostCard(props: {
 }
 
 function CreatePost() {
-  const trpcUtils = trpc.useUtils();
+  const apiUtils = api.useUtils();
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const { mutate, error } = trpc.post.create.useMutation({
+  const { mutate, error } = api.post.create.useMutation({
     async onSuccess() {
       setTitle("");
       setContent("");
-      await trpcUtils.post.all.invalidate();
+      await apiUtils.post.all.invalidate();
     },
   });
 
@@ -95,12 +95,12 @@ function CreatePost() {
 }
 
 export default function Index() {
-  const trpcUtils = trpc.useUtils();
+  const apiUtils = api.useUtils();
 
-  const postQuery = trpc.post.all.useQuery();
+  const postQuery = api.post.all.useQuery();
 
-  const deletePostMutation = trpc.post.delete.useMutation({
-    onSettled: () => trpcUtils.post.all.invalidate().then(),
+  const deletePostMutation = api.post.delete.useMutation({
+    onSettled: () => apiUtils.post.all.invalidate().then(),
   });
 
   return (
@@ -113,7 +113,7 @@ export default function Index() {
         </Text>
 
         <Pressable
-          onPress={() => void trpcUtils.post.all.invalidate()}
+          onPress={() => void apiUtils.post.all.invalidate()}
           className="flex items-center rounded-lg bg-primary p-2"
         >
           <Text className="text-foreground"> Refresh posts</Text>
