@@ -1,7 +1,6 @@
 import { Injectable } from "@nestjs/common";
 
-import type { Logger } from "@acme/logging";
-import { LoggerFactory } from "@acme/logging";
+import { Logger, LoggerFactory } from "@acme/logging";
 
 import { GreetingService } from "./greeting.service";
 

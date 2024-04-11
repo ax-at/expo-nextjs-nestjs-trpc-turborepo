@@ -1,5 +1,5 @@
 {
-  "name": "@acme/api",
+  "name": "@acme/features",
   "version": "0.2.0",
   "private": true,
   "author": "Akash <akashdevcc@gmail.com>",
@@ -10,21 +10,17 @@
     "clean": "git clean -xdf .turbo node_modules",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "pnpm build --watch",
-    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "test": "echo 'Add test script here'",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/features": "workspace:^",
     "@acme/logging": "workspace:^",
     "@acme/trpc": "workspace:^",
     "@acme/validators": "workspace:^",
-    "@grpc/proto-loader": "^0.7.12",
     "@nestjs/common": "^10.0.0",
-    "@nestjs/core": "^10.0.0",
-    "@nestjs/microservices": "^10.0.0",
-    "@nestjs/websockets": "^10.0.0",
-    "@trpc/server": "11.0.0-rc.332",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -32,16 +28,11 @@
     "@acme/prettier-config": "workspace:^",
     "@acme/tsconfig": "workspace:^",
     "@swc/core": "^1.4.12",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
     "eslint": "^8.56.0",
     "prettier": "^3.1.1",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@acme/eslint-config/base"
-    ]
-  },
-  "prettier": "@acme/prettier-config"
+  }
 }

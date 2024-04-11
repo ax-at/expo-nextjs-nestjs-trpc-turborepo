@@ -1,5 +1,5 @@
 {
-  "name": "@acme/api",
+  "name": "@acme/trpc",
   "version": "0.2.0",
   "private": true,
   "author": "Akash <akashdevcc@gmail.com>",
@@ -15,23 +15,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@acme/features": "workspace:^",
-    "@acme/logging": "workspace:^",
-    "@acme/trpc": "workspace:^",
-    "@acme/validators": "workspace:^",
-    "@grpc/proto-loader": "^0.7.12",
     "@nestjs/common": "^10.0.0",
-    "@nestjs/core": "^10.0.0",
-    "@nestjs/microservices": "^10.0.0",
-    "@nestjs/websockets": "^10.0.0",
-    "@trpc/server": "11.0.0-rc.332",
+    "@acme/logging": "workspace:^",
+    "@trpc/server": "11.0.0-next-beta.236",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:^",
     "@acme/prettier-config": "workspace:^",
     "@acme/tsconfig": "workspace:^",
-    "@swc/core": "^1.4.12",
     "eslint": "^8.56.0",
     "prettier": "^3.1.1",
     "tsup": "^8.0.1",

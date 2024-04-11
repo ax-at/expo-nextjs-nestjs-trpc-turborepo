@@ -1,9 +1,9 @@
 import { Module } from "@nestjs/common";
 import { AppContextFactory } from "app.context";
 
+import { GreetingModule, PostModule } from "@acme/features";
+
 import { AppRouterFactory } from "./app.router";
-import { GreetingModule } from "./greeting";
-import { PostModule } from "./post";
 
 @Module({
   imports: [GreetingModule, PostModule],
