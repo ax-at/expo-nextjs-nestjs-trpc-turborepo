@@ -12,24 +12,29 @@ export class PostRouter {
 
   create() {
     return createRouter({
-      all: publicProcedure.query(({}) => {
-        return this.postController.getAll();
-      }),
-
-      byId: publicProcedure
-        .input(z.object({ id: z.number() }))
-        .query(({ input }) => {
-          const id = input.id;
-          return this.postController.getById(id);
+      post: {
+        // eslint-disable-next-line no-empty-pattern
+        all: publicProcedure.query(({}) => {
+          return this.postController.getAll();
         }),
 
-      create: publicProcedure.input(CreatePostSchema).mutation(({ input }) => {
-        return this.postController.create(input);
-      }),
+        byId: publicProcedure
+          .input(z.object({ id: z.number() }))
+          .query(({ input }) => {
+            const id = input.id;
+            return this.postController.getById(id);
+          }),
 
-      delete: publicProcedure.input(z.number()).mutation(({ input }) => {
-        return this.postController.deleteById(input);
-      }),
+        create: publicProcedure
+          .input(CreatePostSchema)
+          .mutation(({ input }) => {
+            return this.postController.create(input);
+          }),
+
+        delete: publicProcedure.input(z.number()).mutation(({ input }) => {
+          return this.postController.deleteById(input);
+        }),
+      },
     });
   }
 }
