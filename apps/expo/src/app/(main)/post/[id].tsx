@@ -6,7 +6,7 @@ import { trpc } from "~/api";
 
 const PostContainer = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { data } = trpc.post.byId.useQuery({ id: parseInt(id) });
+  const { data } = trpc.post.byId.useQuery({ id: parseInt(id ?? "") });
 
   if (!data) return null;
 

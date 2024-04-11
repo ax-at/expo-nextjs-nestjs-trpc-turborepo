@@ -1,11 +1,12 @@
 import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "app.module";
-import { createInnerContext } from "context";
 
 import type { AppRouter } from "./app.router";
+import type { Session } from "./context";
 import { AppContextFactory } from "./app.context";
 import { AppRouterFactory } from "./app.router";
+import { createInnerContext } from "./context";
 import { createCallerFactory } from "./trpc";
 
 /**
@@ -39,4 +40,22 @@ export {
   AppRouterFactory,
   AppModule,
 };
-export type { AppRouter, RouterInputs, RouterOutputs };
+export type { Session, AppRouter, RouterInputs, RouterOutputs };
+
+/**
+ * Below types needs to be exported.
+ * Due to the issues coming in apps:
+ * - "property collision with a built-in method"
+ * - "router types not being inferred on apps"
+ *
+ * see: https://github.com/trpc/trpc/issues/5614
+ */
+export {
+  type TRPC_ERROR_CODE_NUMBER,
+  type BuiltRouter,
+  type QueryProcedure,
+  type MutationProcedure,
+  type DecorateCreateRouterOptions,
+  type RouterCaller,
+  type Router,
+} from "@trpc/server/unstable-core-do-not-import";
