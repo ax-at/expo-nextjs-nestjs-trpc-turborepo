@@ -1,6 +1,6 @@
-# Zero Stack Monorepo
+# Expo NextJS NestJS tRPC Turborepo
 
-Expo, NextJS, tRPC, NestJS in one single monorepo.
+Expo, NextJS, NestJS, tRPC in one single monorepo.
 
 ## Steps:
 
@@ -64,7 +64,7 @@ Expo, NextJS, tRPC, NestJS in one single monorepo.
         ```
     4. Run "expo" react-native app with "nestjs + fastify" backend
   
-        First change the port from `3000` to `4000` [here](https://github.com/akashdevcc/zero-stack/blob/main/apps/expo/src/api/index.tsx#L36) in your code!
+        First change the port from `3000` to `4000` [here](https://github.com/akashdevcc/expo-nextjs-nestjs-trpc-turborepo/blob/main/apps/expo/src/api/index.tsx#L36) in your code!
        
         In "Terminal 1", run "nestjs" app:
         ```bash
